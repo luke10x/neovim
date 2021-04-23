@@ -1,0 +1,32 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  up:
+    cmds:
+      - docker-compose up -d --build --force-recreate
+
+  lazy-up:
+    cmds:
+      - task up
+    status:
+      - test -n "$(docker-compose ps -q builder)"
+
+  down:
+    cmds:
+      - docker-compose down
+
+  install:
+    deps: [lazy-up]
+    cmds:
+      - mkdir ~/opt
+      - rm -fr ~/opt/neovim
+      - docker cp "$(docker-compose ps -q builder)":/opt/neovim ~/opt/neovim
+      - echo "make sure $(HOME)/opt/neovim/bin is in your path 😂"
+    
+  default:
+    deps: [lazy-up]
+    cmds:
+      - docker-compose exec builder bash 
+    silent: true

@@ -1,0 +1,14 @@
+version: "3.6"
+services:
+
+  builder:
+    build:
+      context: .
+      # volumes:
+      # - "../neovim-src:/mnt/neovim-src"
+      # - "./target:/mnt/target"
+    working_dir: "/mnt/neovim-src"
+    entrypoint: "/bin/bash -c"
+    command:
+      - |
+        tail -f /dev/null

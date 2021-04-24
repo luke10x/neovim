@@ -20,7 +20,7 @@ tasks:
   install:
     deps: [lazy-up]
     cmds:
-      - mkdir ~/opt
+      - mkdir ~/opt -p
       - rm -fr ~/opt/neovim
       - docker cp "$(docker-compose ps -q builder)":/opt/neovim ~/opt/neovim
       - echo "make sure $(HOME)/opt/neovim/bin is in your path 😂"

@@ -5,11 +5,11 @@ return function()
       numbers = "ordinal",
       number_style = "superscript",
       mappings = true,
-      buffer_close_icon= '',
+      buffer_close_icon= 'X',
       modified_icon = '●',
-      close_icon = '',
-      left_trunc_marker = '',
-      right_trunc_marker = '',
+      close_icon = '+',
+      left_trunc_marker = '<',
+      right_trunc_marker = '>',
       max_name_length = 18,
       max_prefix_length = 15, -- prefix used when a buffer is deduplicated
       tab_size = 18,
@@ -18,7 +18,7 @@ return function()
         return "("..count..")"
       end,
       diagnostics_indicator = function(count, level)
-        local icon = level:match("error") and " " or ""
+        local icon = level:match("error") and "E " or "W"
         return " " .. icon .. count
       end,
       separator_style = "slant",

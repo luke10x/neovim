@@ -27,7 +27,5 @@ wo.number = true
 wo.relativenumber = true
 wo.signcolumn = 'yes'
 wo.wrap = true
--- bo.colorscheme = 'slate'
---
 vim.g.edge_style = 'neon'
 vim.g.colors_name='edge'

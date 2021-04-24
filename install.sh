@@ -9,6 +9,6 @@ git submodule update
 
 cd ~
 mkdir -p ~/.config
-rm ~/.config/nvim 
+rm -f ~/.config/nvim 
 ln -s $SCRIPT_DIR/config ~/.config/nvim
 

@@ -8,14 +8,14 @@
     -- execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
     -- execute 'packadd packer.nvim'
 -- end
-vim.cmd('packadd packer.nvim')
+-- vim.cmd('packadd packer.nvim')
 
 -- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+-- vim.cmd [[packadd packer.nvim]]
 -- Only if your version of Neovim doesn't have https://github.com/neovim/neovim/pull/12632 merged
 -- vim._update_package_paths()
 
-return require('packer').startup(function()
+require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
@@ -26,15 +26,14 @@ return require('packer').startup(function()
 
   use {
     'akinsho/nvim-bufferline.lua',
-        requires = {'kyazdani42/nvim-web-devicons', 'sainnhe/edge'},
-        config = require'bufferline_setup',
+        requires = {
+          'sainnhe/edge'
+        },
+        config = require'setup-bufferline',
   }
 
-  use 'tpope/vim-commentary'
-
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {'kyazdani42/nvim-web-devicons'}
-  }
+  use 'preservim/nerdcommenter'
+  use 'airblade/vim-gitgutter'  
 end)
 
+vim.api.nvim_command('PackerSync')

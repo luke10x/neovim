@@ -1,1 +1,3 @@
 neovim-src/
+config/plugin/
+config/undodir
